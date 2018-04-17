@@ -5,10 +5,11 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var flash = require('connect-flash');
 var session = require('express-session');
+var mysql = require('mysql');
+var app = express();
 // End Dependencies
 
 // Middleware
-var app = express();
 app.set('views', __dirname + '/public');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname));
@@ -21,7 +22,20 @@ app.use(session({
   cookie: { maxAge: 60 * 60 * 1000 } //1hour
 }));
 app.use(flash());
+
 // End Middleware
+
+// Setup Database
+var db = mysql.createConnection({
+    host: "DB-project",
+    user: "database",
+    password: "database"
+});
+db.connect(function(err) {
+    if (err) console.log("err");
+    console.log("Connected!");
+});
+// End Setup Database
 
 // Routing
 app.get('/', function(req, res, next) {
