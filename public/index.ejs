@@ -1,5 +1,52 @@
 <% include header.ejs %>
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        text-align: center;
+        background-image: url('/public/assets/imgs/background-engineer.png')
+    }
+    #loginbox {
+        position: relative;
+        top: 10%;
+        padding: 10px;
+        margin: auto;
+        width: 400px;
+        height: 70%;
+        border-radius: 10px;
+        background-color:#f4f4f4;
+    }
+    img.usericon {
+        margin: auto;
+        width: 150px;
+        height: 150px;
+    }
+    .welcome {
+        position: relative;
+        top: 5%;
+        font-size: 60px;
+        color: whitesmoke;
+    }
+</style>
 <body>
-    <p>hello</p>
+    <h1 class="welcome">Welcome to Reg Chula</h1>
+    <div id="loginbox">
+        <img class="usericon" src="/public/assets/imgs/student.png"/>
+        <div style="height:20px"></div>
+        <form>
+            <div class="form-group">
+                <i class="fas fa-user"></i>
+                <label for="inputAddress">Student ID</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <i class="fas fa-key"></i>
+                <label for="inputAddress">Password</label>
+                <input type="password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+    </div>
 </body>
 <% include footer.ejs %>

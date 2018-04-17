@@ -27,13 +27,13 @@ app.use(flash());
 
 // Setup Database
 var db = mysql.createConnection({
-    host: "DB-project",
-    user: "database",
-    password: "database"
+    host: "127.0.0.1",
+    user: "root",
+    password: "85156790"
 });
 db.connect(function(err) {
     if (err) console.log("err");
-    console.log("Connected!");
+    else console.log("Connected!");
 });
 // End Setup Database
 
