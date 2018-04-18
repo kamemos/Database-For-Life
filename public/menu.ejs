@@ -14,15 +14,14 @@
 
         div.menubar {
             float: left;
-            background-color: rgb(0, 204, 255);
+            background-color: #f4f4f4c9;
             width: 300px;
             height: 100%;
         }
 
         .schoolimg {
-            height: auto; 
+            height: 150px; 
             width: auto; 
-            max-width: 150px; 
         }
 
         div.menubar > ul {
@@ -47,22 +46,32 @@
         table { 
             position: relative;
             margin: auto;
+            border: none;
         } 
 
+        tr {
+            width: 100%;
+            border: none;
+        }
+        tr:hover {
+            background-color: #ffff99;
+        }
         td.icon{
-            padding-right: 20px;
+            padding-right: 10px;
         }
 
-        a { color: inherit; } 
+        a { 
+            color: inherit; 
+        } 
 </style>
 
 <body>
     <div class="box">
         <div class="menubar">
-            <img class="schoolimg" src="/public/assets/imgs/school.png"/>
+            <img class="schoolimg" src="/public/assets/imgs/chulalogo.png"/>
             <div style='height:20px;'></div>
-            <table classt="mytable">
-                <tbody>
+            <table class="mytable table table-hover" cellspacing="0" cellpadding="0">
+                <tbody style="width:100%;">
                     <tr>
                         <td class="icon" ><i class="far fa-plus-square" style="height:30px;width:auto;"></i></td>
                         <td><a href="/addsubject">เพิ่มรายวิชา</a></td>
@@ -71,9 +80,13 @@
                         <td class="icon" ><i class="far fa-trash-alt" style="height:30px;width:auto;"></i></td>
                         <td><a href="/removesubject">ลดรายวิชา</a></td>
                     </tr>
+                    <tr>
+                        <td class="icon" ><i class="fas fa-external-link-alt" style="height:25px;width:auto;"></i></td>
+                        <td><a href="/logout">ออกจากระบบ</a></td>
+                    </tr>
                 </tbody>
             </table>
-            <button class="btn btn-danger"  onclick="window.location.href='/logout'" id="hangbottom">Log out</button>
+           
         </div>
         <div class="content">
             <h1>hellooooo</h1>

@@ -5,7 +5,10 @@
         height: 100%;
         margin: 0;
         text-align: center;
-        background-image: url('/public/assets/imgs/background-engineer.png')
+        background-image: url('/public/assets/imgs/chulabg.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
     }
     #loginbox {
         position: relative;
@@ -15,7 +18,7 @@
         width: 400px;
         height: 70%;
         border-radius: 10px;
-        background-color:#f4f4f4;
+        background-color:#f4f4f4c9;
     }
     img.usericon {
         margin: auto;
@@ -26,7 +29,7 @@
         position: relative;
         top: 5%;
         font-size: 60px;
-        color: whitesmoke;
+        color: black;
     }
 </style>
 <body>
@@ -39,12 +42,12 @@
             <div class="form-group">
                 <i class="fas fa-user"></i>
                 <label for="inputAddress">Student ID</label>
-                <input name="username" type="text" class="form-control">
+                <input style="width:80%;margin:auto" name="username" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <i class="fas fa-key"></i>
                 <label for="inputAddress">Password</label>
-                <input name="password" type="password" class="form-control">
+                <input style="width:80%;margin:auto" name="password" type="password" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
