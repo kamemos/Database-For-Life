@@ -28,8 +28,8 @@ app.use(flash());
 // Setup Database
 var db = mysql.createConnection(require('./configs/dbconfig.js'));
 db.connect(function(err) {
-    if (err) console.log("err");
-    else console.log("Connected!");
+    if (err) console.log("err connect database");
+    else console.log("connect database success");
 });
 // End Setup Database
 
@@ -44,7 +44,6 @@ app.post('/login', function(req,res,next){
     }
     let user = null;
     db.query("SELECT * FROM student WHERE Sid="+req.body.username,function (err, result, fields){
-        console.log(result[0].Spassword);
         if (result && req.body.password === result[0].Spassword){
             user = result;
             user.isAuthenticated = true;
@@ -66,6 +65,7 @@ app.get('/menu',isLoggedIn, function(req,res,next){
     console.log(req.session)
     res.render('menu');
 });
+
 // End Routing
 
 // Set up middleware to check for login
