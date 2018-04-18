@@ -43,18 +43,36 @@
             width: 40%;
             top: 300px;
         }
+        
+        table { 
+            position: relative;
+            margin: auto;
+        } 
+
+        td.icon{
+            padding-right: 20px;
+        }
+
+        a { color: inherit; } 
 </style>
 
 <body>
     <div class="box">
         <div class="menubar">
             <img class="schoolimg" src="/public/assets/imgs/school.png"/>
-            <p>test</p>
-            <ul>
-                <li>ตรวจสอบรายวิชา</li>
-                <li>เพิ่มวิชา</li>
-                <li>ลดวิชา</li>
-            </ul>
+            <div style='height:20px;'></div>
+            <table classt="mytable">
+                <tbody>
+                    <tr>
+                        <td class="icon" ><i class="far fa-plus-square" style="height:30px;width:auto;"></i></td>
+                        <td><a href="/addsubject">เพิ่มรายวิชา</a></td>
+                    </tr>
+                    <tr>
+                        <td class="icon" ><i class="far fa-trash-alt" style="height:30px;width:auto;"></i></td>
+                        <td><a href="/removesubject">ลดรายวิชา</a></td>
+                    </tr>
+                </tbody>
+            </table>
             <button class="btn btn-danger"  onclick="window.location.href='/logout'" id="hangbottom">Log out</button>
         </div>
         <div class="content">
