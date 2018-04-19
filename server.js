@@ -76,7 +76,27 @@ app.get('/addsubject',isLoggedIn, function(req,res,next){
 });
 
 app.post('/addsubject',isLoggedIn, function(req,res,next){
-	console.log(req.body);
+	let subjCode1 = req.body.subjCode1;
+	let subjCode2 = req.body.subjCode2;
+	let secNo1 = req.body.secNo1;
+	let secNo2 = req.body.secNo2;
+	let Sid = req.session.user.Sid;
+	let Syear = 2559;
+	let Ssemester = 2;
+	let Sgrade = "-1";
+	let State = "S";
+	console.log('INSERT INTO Student_registers_in (Sid, Syear, Ssemester, Ssection, Scode, Sgrade, State) VALUES ("'
+		+ Sid + '",' + Syear + ',' + Ssemester + ',' + secNo1 + ',"' + subjCode1 + '","' + Sgrade + '","' + State + '");');
+	db.query('INSERT INTO Student_registers_in (Sid, Syear, Ssemester, Ssection, Scode, Sgrade, State) VALUES ("'
+		+ Sid + '",' + Syear + ',' + Ssemester + ',' + secNo1 + ',"' + subjCode1 + '","' + Sgrade + '","' + State + '");',function(err,result){
+			if(err) throw err;
+			else console.log("insert to database successful");
+	});
+	db.query('INSERT INTO Student_registers_in (Sid, Syear, Ssemester, Ssection, Scode, Sgrade, State) VALUES ("'
+		+ Sid + '",' + Syear + ',' + Ssemester + ',' + secNo2 + ',"' + subjCode2 + '","' + Sgrade + '","' + State + '");',function(err,result,fields){
+			if(err) console.log("insert to database error");
+			else console.log("insert to database successful");
+	});
 	res.redirect('/menu');
 });
 // End Routing
