@@ -42,6 +42,12 @@
             float: left;
             width: 800px;
             padding: 0;
+            margin-top: 0;
+        }
+
+        input.form-control{
+            margin-top: 10px;
+            margin-bottom: 2px;
         }
 
         #hangbottom {
@@ -109,14 +115,19 @@
             </table>
         </div>
         <div class="content">
-            <form class="form-inline">
-                <div class="col-md-6">
+            <form class="form-inline" method="post">
+                <div class="col-md-5">
                     <label for="subjectCode">Subject Code</label>
-                    <input type="text" class="form-control" id="subjectCode">
+                    <input type="text" name="subjCode1" class="form-control">
+                    <input type="text" name="subjCode2" class="form-control">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <label for="sectionNo">Section Number</label>
-                    <input type="text" class="form-control" id="sectionNo">
+                    <input type="text" name="secNo1" class="form-control">
+                    <input type="text" name="secNo2" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <button type="Submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>

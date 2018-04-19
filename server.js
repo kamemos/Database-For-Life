@@ -52,7 +52,7 @@ app.post('/login', function(req,res,next){
             user = result;
             user.isAuthenticated = true;
             req.session.user = user[0];
-            res.redirect('/menu')
+            res.redirect('/menu');
         }
         else {
             res.redirect('/?err=Username or Password is not correct');
@@ -62,7 +62,7 @@ app.post('/login', function(req,res,next){
 
 app.get('/logout', function(req,res,next){
     req.session.destroy();
-    res.redirect('/')
+    res.redirect('/');
 })
 
 app.get('/menu',isLoggedIn, function(req,res,next){
@@ -71,8 +71,13 @@ app.get('/menu',isLoggedIn, function(req,res,next){
 });
 
 app.get('/addsubject',isLoggedIn, function(req,res,next){
-    console.log(req.session.user)
+    //console.log(req.session.user)
     res.render('addsubject');
+});
+
+app.post('/addsubject',isLoggedIn, function(req,res,next){
+	console.log(req.body);
+	res.redirect('/menu');
 });
 // End Routing
 
