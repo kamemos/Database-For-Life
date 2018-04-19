@@ -66,6 +66,11 @@ app.get('/menu',isLoggedIn, function(req,res,next){
     res.render('menu');
 });
 
+app.get('/addsubject',isLoggedIn, function(req,res,next){
+    console.log(req.session.user)
+
+    res.render('addsubject');
+});
 // End Routing
 
 // Set up middleware to check for login
