@@ -22,7 +22,11 @@ app.use(session({
   cookie: { maxAge: 60 * 60 * 1000 } //1hour
 }));
 app.use(flash());
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 // End Middleware
 
 // Setup Database
@@ -40,7 +44,7 @@ app.get('/', function(req, res, next){
 
 app.post('/login', function(req,res,next){
     if (!req.body.username || !req.body.password){
-        res.redirect('/?err=No username or password');
+        return res.redirect('/?err=No username or password');
     }
     let user = null;
     db.query("SELECT * FROM student WHERE Sid="+req.body.username,function (err, result, fields){
