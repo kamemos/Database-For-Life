@@ -72,7 +72,6 @@ app.get('/menu',isLoggedIn, function(req,res,next){
 
 app.get('/addsubject',isLoggedIn, function(req,res,next){
     console.log(req.session.user)
-
     res.render('addsubject');
 });
 // End Routing
