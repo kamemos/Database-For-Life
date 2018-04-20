@@ -43,6 +43,7 @@ app.get('/', function(req, res, next){
 });
 
 app.post('/login', function(req,res,next){
+
     if (!req.body.username || !req.body.password){
         return res.redirect('/?err=No username or password');
     }
@@ -70,6 +71,7 @@ app.get('/menu',isLoggedIn, function(req,res,next){
     res.render('menu');
 });
 
+<<<<<<< Updated upstream
 app.get('/addsubject',isLoggedIn, function(req,res,next){
     //console.log(req.session.user)
     res.render('addsubject');
@@ -99,6 +101,12 @@ app.post('/addsubject',isLoggedIn, function(req,res,next){
 	});
 	res.redirect('/menu');
 });
+=======
+app.get('/showgrade',isLoggedIn, function(req, res, next){
+    res.render('showgrade');
+});
+
+>>>>>>> Stashed changes
 // End Routing
 
 // Set up middleware to check for login
