@@ -5,7 +5,7 @@
             margin: 0;
             text-align: center;
         }
-        
+
         div.flexbox {
             display: flex;
             flex-direction: row;
@@ -67,7 +67,6 @@
         a { 
             color: inherit; 
         } 
-    
 </style>
 
 <body>
@@ -106,14 +105,32 @@
             </table>
         </div>
         <div class="content">
-            <div >
-                <form>
-                    <div class="form-group">
-                        <label>Subject ID</label>
-                        <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    </div>
-                </form>
-            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Subject Code</th>
+                        <th scope="col">Subject Name</th>
+                        <th scope="col">Section Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><%= sCode1 %></td>
+                        <td><%= sName1 %></td>
+                        <td><%= sNo1 %></td>
+                    </tr>
+                    <% if(sCode2) { %>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td><%= sCode2 %></td>
+                        <td><%= sName2 %></td>
+                        <td><%= sNo2 %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
