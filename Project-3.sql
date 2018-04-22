@@ -152,8 +152,7 @@ create table Student_registers_in(
     primary key (Sid, Syear, Ssemester, Ssection, Scode),
     constraint fk_Register_student foreign key (Sid) references Student (Sid) on update cascade,
     constraint fk_Register_section foreign key (Syear, Ssemester, Ssection, Scode) references Section (Syear, Ssemester, Ssection, Scode) on update cascade
-
-);
+); # fin
 
 create table Student_activities(
 	Sactivities varchar(255) not null,
