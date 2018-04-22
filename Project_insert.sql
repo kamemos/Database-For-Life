@@ -25,19 +25,19 @@ values ("Science", "Doctoral", "Thai");
 #----------------------------------------------------------------------
 
 insert into Student(Sname, Sid, Syear, Faculty, State, Grade, Educational_level, Group_name, Acad_year, Cdept_name, Cacad_year, Tid, Nfaculty, Ndegree, Ncourse, Spassword)
-values ("Natt", "5831016321", 3, "Engineering", "N", 4.00, "Bachelor", "A", 2558, "Nothing", 2559, "1111111111", "Engineering", "Bachelor", "Thai", "nattzaza007");
+values ("Natt", "5831016321", 3, "Engineering", "N", 4.00, "Bachelor", "A", 2558, "Nothing", 2559, "1111111111", "Faculty of Engineering", "Bachelor", "Thai", "nattzaza007");
 
 insert into Student(Sname, Sid, Syear, Faculty, State, Grade, Educational_level, Group_name, Acad_year, Cdept_name, Cacad_year, Tid, Nfaculty, Ndegree, Ncourse, Spassword)
-values ("Game", "5831035221", 3, "Engineering", "N", 1.00, "Bachelor", "D", 2558, "Nothing", 2559, "1111111111", "Engineering", "Bachelor", "Thai", "gamelovegay");
+values ("Game", "5831035221", 3, "Engineering", "N", 1.00, "Bachelor", "D", 2558, "Nothing", 2559, "1111111111", "Faculty of Engineering", "Bachelor", "Thai", "gamelovegay");
 
 insert into Student(Sname, Sid, Syear, Faculty, State, Grade, Educational_level, Group_name, Acad_year, Cdept_name, Cacad_year, Tid, Nfaculty, Ndegree, Ncourse, Spassword)
-values ("Indy", "5831004821", 3, "Engineering", "N", 3.98, "Bachelor", "C", 2558, "Nothing", 2558, "1111111111", "Engineering", "Bachelor", "Thai", "indybobo");
+values ("Indy", "5831004821", 3, "Engineering", "N", 3.98, "Bachelor", "C", 2558, "Nothing", 2558, "1111111111", "Faculty of Engineering", "Bachelor", "Thai", "indybobo");
 
 insert into Student(Sname, Sid, Syear, Faculty, State, Grade, Educational_level, Group_name, Acad_year, Cdept_name, Cacad_year, Tid, Nfaculty, Ndegree, Ncourse, Spassword)
-values ("Gustavo", "5831029521", 3, "Engineering", "N", 2.27, "Bachelor", "F", 2558, "Nothing", 2559, "1111111111", "Engineering", "Bachelor", "Thai", "gustavo2499");
+values ("Gustavo", "5831029521", 3, "Engineering", "N", 2.27, "Bachelor", "F", 2558, "Nothing", 2559, "1111111111", "Faculty of Engineering", "Bachelor", "Thai", "gustavo2499");
 
 insert into Student(Sname, Sid, Syear, Faculty, State, Grade, Educational_level, Group_name, Acad_year, Cdept_name, Cacad_year, Tid, Nfaculty, Ndegree, Ncourse, Spassword)
-values ("Mos", "1111111121", 3, "Engineering", "N", 0.00, "Bachelor", "G", 2558, "Nothing", 2558, "1111111111", "Engineering", "Bachelor", "Thai", "moszaretired");
+values ("Mos", "1111111121", 3, "Engineering", "N", 0.00, "Bachelor", "G", 2558, "Nothing", 2558, "1111111111", "Faculty of Engineering", "Bachelor", "Thai", "moszaretired");
 
 #----------------------------------------------------------------------
 
@@ -145,6 +145,48 @@ values ("COMP SYS ARCH", "2110352", 3);
 insert into Subjects (Sname, Scode, Scredit)
 values ("HW SYN LAB I", "2110363", 1);
 
+insert into Subjects (Sname, Scode, Scredit)
+values ("ENG DRAWING", "2103106", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("CALCULUSI", "2301107", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("GEN CHEM", "2302127", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("GEN CHEM LAB", "2302163", 1);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("GEN PHYSI", "2304107", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("GEN PHYS LABI", "2304183", 1);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("EXP ENG I", "5500111", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("EXPL ENG WORLD", "2100111", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("ENG MATERIALS", "2109101", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("COM PROG", "2110101", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("CALCULUS II", "2301108", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("GEN PHYS II", "2304108", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("GEN PHYS LABII", "2304184", 1);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("EXP ENG II", "5500112", 3);
+
 #------------------------------------------------------------------------
 
 insert into Place (Pname, Address, Capacity)
@@ -251,7 +293,47 @@ values ("ENG3", 201, 2558, 2, 1, 2110363, "5555555555");
 
 #------------------------------------------------------------------------
 
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 1, "2103106", "D");
 
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 1, "2301107", "B");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 1, "2302127", "B");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 1, "2302163", "B+");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 1, "2304107", "C");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 1, "2304183", "A");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 1, "5500111", "B");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 2, "2100111", "A");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 2, "2109101", "B");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 2, "2110101", "A");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 2, "2301108", "B");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 2, "2304108", "A");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 2, "2304184", "A");
+
+insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
+values ("1", 2558, 2, "5500112", "A");
 
 #------------------------------------------------------------------------
 
