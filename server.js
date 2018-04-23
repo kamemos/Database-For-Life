@@ -43,7 +43,6 @@ app.get('/', function(req, res, next){
 });
 
 app.post('/login', function(req,res,next){
-
     if (!req.body.username || !req.body.password){
         return res.redirect('/?err=No username or password');
     }
@@ -136,8 +135,105 @@ app.get('/addsubresult',isLoggedIn, function(req,res,next){
     res.render('addsubresult');
 });
 
-app.get('/showgrade',isLoggedIn, function(req, res, next){
-    res.render('showgrade');
+app.get('/removesubject',isLoggedIn, function(req, res, next){
+    let msg = req.query.msg;
+    let query = "Select * from Student_registers_in t1 \
+                 LEFT JOIN  Subjects t2 On t1.Scode = t2.Scode \
+                 Where Sgrade = 'R' \
+                 and Sid = "+req.session.user.Sid;
+    
+    db.query(query,function(err,result){
+        if (err){
+            res.render('removesubject',{msg:msg});
+        }
+        else{
+            console.log(result);
+            res.render('removesubject',{msg:msg,
+                                        subjects:result});
+        }
+    })
+});
+
+app.post('/removesubject',isLoggedIn, function(req,res,next){
+    let subjectID = req.body.subjectID;
+    let query = 'UPDATE Student_registers_in SET Sgrade = "R" \
+                 WHERE Scode='+subjectID+' and \
+                 Sid='+req.session.user.Sid+' and \
+                 Sgrade="-"';
+    db.query(query,function(err,result){
+        if(err || result.affectedRows === 0){
+            let msg = encodeURIComponent("Not available");
+            res.redirect('/removesubject?msg='+msg);
+        }
+        else {
+            let msg = encodeURIComponent("Available");
+            res.redirect('/removesubject?msg='+msg);
+        }
+    });
+})
+
+app.get('/withdrawsubject',isLoggedIn, function(req, res, next){
+    let msg = req.query.msg;
+    let query = "Select * from Student_registers_in t1 \
+                 LEFT JOIN  Subjects t2 On t1.Scode = t2.Scode \
+                 Where Sgrade = 'WA' \
+                 and Sid = "+req.session.user.Sid;
+    
+    db.query(query,function(err,result){
+        if (err){
+            res.render('withdrawsubject',{msg:msg});
+        }
+        else{
+            console.log(result);
+            res.render('withdrawsubject',{msg:msg,
+                                          subjects:result});
+        }
+    })
+});
+
+app.post('/withdrawsubject',isLoggedIn, function(req,res,next){
+    let subjectID = req.body.subjectID;
+    let query = 'UPDATE Student_registers_in SET Sgrade = "WA" \
+                 WHERE Scode='+subjectID+' and\
+                 Sid='+req.session.user.Sid+' and\
+                 Sgrade="-"';
+    db.query(query,function(err,result){
+        if(err || result.affectedRows === 0){
+            let msg = encodeURIComponent("Not available");
+            res.redirect('/withdrawsubject?msg='+msg);
+        }
+        else {
+            let msg = encodeURIComponent("Available");
+            res.redirect('/withdrawsubject?msg='+msg);
+        }
+    });
+})
+
+app.get("/transcript", isLoggedIn, function(req,res,next){
+    db.query('select * from subjects inner join student_registers_in on student_registers_in.Scode = subjects.Scode && student_registers_in.Sid =' +req.session.user.Sid, function(err,result,fields){
+        if(err) throw err;
+        else{
+            //setValue(result);
+            data=result;
+            console.log(data);
+        }
+        var test = [];
+        test = data;
+        var size = 0;
+        console.log(size);
+        res.render("transcript", {Sname: req.session.user.Sname,
+                                Sid: req.session.user.Sid,
+                                Faculty: req.session.user.Faculty,
+                                State: req.session.user.State,
+                                Grade: req.session.user.Grade,
+                                Educational_level: req.session.user.Educational_level,
+                                Group_name: req.session.user.Group_name,
+                                Ncourse: req.session.user.Ncourse,
+                                program: req.session.user.Nfaculty,
+                                out: test
+                                });
+        console.log(req.session);
+    });
 });
 
 // End Routing

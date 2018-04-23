@@ -191,7 +191,22 @@ insert into Subjects (Sname, Scode, Scredit)
 values ("GEN PHYS LABII", "2304184", 1);
 
 insert into Subjects (Sname, Scode, Scredit)
-values ("EXP ENG II", "5500112", 3);
+values ("PROG METH I", "2110215", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("DISCRETE STRUC", "2110200", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("COMP ELEC INTF", "2110253", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("DIG COMP LOGIC", "2110251", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("COMP ENG ESS", "2110221", 3);
+
+insert into Subjects (Sname, Scode, Scredit)
+values ("DIG LOGIC LAB I", "2110263", 1);
 
 #------------------------------------------------------------------------
 
@@ -298,8 +313,6 @@ insert into Section (Sbuilding, Sroom_number, Syear, Ssemester, Ssection, Scode,
 values ("ENG3", 201, 2558, 2, 1, 2110363, "5555555555");
 
 #------------------------------------------------------------------------
-
-<<<<<<< HEAD
 insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
 values ("5831035221", 2558, 1, 1,"2103106", "D");
 
@@ -343,48 +356,21 @@ insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
 values ("5831035221", 2558, 2, 1, "5500112", "A");
 
 insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
-values ("5831016321", 2558, 2, 1, "5500112", "A");
-=======
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 1, "2103106", "D");
+values ("5831035221", 2559, 1, 1, "2110215", "-");
 
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 1, "2301107", "B");
+insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
+values ("5831035221", 2559, 1, 1, "2110200", "-");
 
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 1, "2302127", "B");
+insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
+values ("5831035221", 2559, 1, 1, "2110253", "-");
 
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 1, "2302163", "B+");
+insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
+values ("5831035221", 2559, 1, 1, "2110251", "-");
 
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 1, "2304107", "C");
+insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
+values ("5831035221", 2559, 1, 1, "2110221", "-");
 
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 1, "2304183", "A");
-
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 1, "5500111", "B");
-
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 2, "2100111", "A");
-
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 2, "2109101", "B");
-
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 2, "2110101", "A");
-
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 2, "2301108", "B");
-
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 2, "2304108", "A");
-
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 2, "2304184", "A");
-
-insert into student_registers_in(Sid, Syear, Ssemester, Scode, Sgrade)
-values ("1", 2558, 2, "5500112", "A");
+insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
+values ("5831035221", 2559, 1, 1, "2110263", "-");
 
 #------------------------------------------------------------------------

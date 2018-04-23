@@ -1,0 +1,123 @@
+<% include header.ejs %>
+<style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            text-align: center;
+        }
+        
+        div.flexbox {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+        }
+
+        div.menubar {
+            float: left;
+            background-color: #f4f4f4c9;
+            width: 300px;
+            height: 100%;
+        }
+
+        .schoolimg {
+            height: 150px; 
+            width: auto; 
+        }
+
+        div.menubar > ul {
+            position: relative;
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 0;
+            padding: 0;
+        }
+        
+        div.content{
+            position: relative;
+            float: left;
+            height: 100%;
+            width: 100%;
+        }
+
+        #hangbottom {
+            position: relative;
+            bottom: 10%;
+            width: 40%;
+            top: 300px;
+        }
+        
+        table { 
+            position: relative;
+            margin: auto;
+            border: none;
+        } 
+
+        tr {
+            width: 100%;
+            border: none;
+        }
+        tr:hover {
+            background-color: #ffff99;
+        }
+        td.icon{
+            padding-right: 10px;
+        }
+
+        a { 
+            color: inherit; 
+        } 
+    
+</style>
+
+<body>
+    <div class="flexbox">
+        <% include menubar.ejs %>
+        <div class="content">
+            <div style="padding:100px">
+                <h1>ลดรายวิชา</h1>
+                <form style="border:solid;border-width:thin;padding:10px;margin-top:20px" action='/removesubject' method="POST"> 
+                    <div class="form-group">
+                        <% if(msg && msg === 'Not available') {%>
+                        <p style="color:red"><%= msg %></p>
+                        <% } %>
+                        <% if(msg && msg === 'Available') {%>
+                        <p style="color:green">Success</p>
+                        <% } %>
+                        <label>Subject ID</label>
+                        <input style="width:50%;margin:auto;" name="subjectID" class="form-control" placeholder="Enter Subject ID">
+                        <button type="submit" style="margin-top:20px" class="btn btn-primary">ลดวิชา</button>
+                    </div>
+                </form>
+                <h1 style="margin:5% 0 5% 0">รายชื่อวิชาที่ได้ทำการลด</h1>
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course NO</th>
+                            <th>Course Title</th>
+                            <th>Section</th>
+                            <th>Credit</th>
+                            <th>Year</th>
+                            <th>Semester</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(subjects) subjects.forEach(function(subject){ %>
+                        <tr>
+                            <td><%= subject.Scode %></td>
+                            <td><%= subject.Sname %></td>
+                            <td><%= subject.Ssection %></td>
+                            <td><%= subject.Scredit %></td>
+                            <td><%= subject.Syear %></td>
+                            <td><%= subject.Ssemester %></td>
+                            <td>R</td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<% include footer.ejs %>
