@@ -209,6 +209,37 @@ app.post('/withdrawsubject',isLoggedIn, function(req,res,next){
     });
 })
 
+app.get('/findsubject',isLoggedIn, function(req, res, next){
+    res.render('findsubject');
+});
+
+app.post('/findsubject',isLoggedIn, function(req, res, next){
+    let msg = req.query.msg;
+    let subjCode = req.body.subjCode;
+    let subjName = req.body.subjName;
+    console.log(subjCode);
+    if(!subjCode){
+        let query = 'SELECT * FROM subjects S, section C WHERE S.Scode = C.Scode AND S.Sname = "'+subjName+'";';
+        // let query = 'SELECT * FROM subjects S, section C WHERE S.Scode = C.Scode AND (S.Scode = '+subjCode+' OR S.Sname = "'+subjName+'" );';
+    }   else {
+        // let query = 'SELECT * FROM subjects S, section C WHERE S.Scode = C.Scode AND S.Sname = "'+subjName+'";';
+        let query = 'SELECT * FROM subjects S, section C WHERE S.Scode = C.Scode AND (S.Scode = '+subjCode+' OR S.Sname = "'+subjName+'" );';
+    }
+    console.log(query);
+    db.query(query,function(err,result){
+        console.log(result);
+        if (err){
+            console.log('error jaa!');
+            res.render('findsubject',{msg:msg});
+        }
+        else{
+            console.log(result);
+            res.render('findsubject',{msg:msg,
+                                          subjects:result});
+        }
+    })
+});
+
 app.get("/transcript", isLoggedIn, function(req,res,next){
     db.query('select * from subjects inner join student_registers_in on student_registers_in.Scode = subjects.Scode && student_registers_in.Sid =' +req.session.user.Sid, function(err,result,fields){
         if(err) throw err;
