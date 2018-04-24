@@ -75,6 +75,9 @@
     <div class="flexbox">
         <% include menubar.ejs %>
         <div class="content">
+            <br>
+            <h2 align="center">ตรวจสอบตอนเรียน</h2>
+            <br>
             <form class="form-inline" action="/findsubject" method="post">
                 <div class="col-md-5">
                     <label for="subjectCode">Subject Code</label>
@@ -88,15 +91,24 @@
                     <button type="Submit" class="btn btn-primary">Search</button>
                 </div>
             </form>
-            <table>
+            <br>
+            <table style="width:100%">
+                    <tr>
+                        <th>COURSE CODE</th>
+                        <th>COURSE TITLE</th> 
+                        <th>CREDIT</th>
+                        <th>SECTION</th>
+                        <th>BUILDING</th>
+                        <th>ROOM</th>
+                    </tr>
                 <% if(typeof subjects !== "undefined") subjects.forEach(function(subject){ %>
                     <tr>
                         <td><%= subject.Scode %></td>
                         <td><%= subject.Sname %></td>
                         <td><%= subject.Scredit %></td>
+                        <td><%= subject.Ssection %></td>
                         <td><%= subject.Sbuilding %></td>
                         <td><%= subject.Sroom_number %></td>
-                        <td><%= subject.Ssection %></td>
                     </tr>
                 <% }); %>
             </table>

@@ -217,14 +217,7 @@ app.post('/findsubject',isLoggedIn, function(req, res, next){
     let msg = req.query.msg;
     let subjCode = req.body.subjCode;
     let subjName = req.body.subjName;
-    console.log(subjCode);
-    if(!subjCode){
-        let query = 'SELECT * FROM subjects S, section C WHERE S.Scode = C.Scode AND S.Sname = "'+subjName+'";';
-        // let query = 'SELECT * FROM subjects S, section C WHERE S.Scode = C.Scode AND (S.Scode = '+subjCode+' OR S.Sname = "'+subjName+'" );';
-    }   else {
-        // let query = 'SELECT * FROM subjects S, section C WHERE S.Scode = C.Scode AND S.Sname = "'+subjName+'";';
-        let query = 'SELECT * FROM subjects S, section C WHERE S.Scode = C.Scode AND (S.Scode = '+subjCode+' OR S.Sname = "'+subjName+'" );';
-    }
+    let query = 'SELECT * FROM subjects S, section C WHERE S.Scode = C.Scode AND (S.Scode = '+(0+subjCode)+' OR S.Sname = "'+subjName+'" );';
     console.log(query);
     db.query(query,function(err,result){
         console.log(result);

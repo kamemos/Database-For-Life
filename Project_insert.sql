@@ -310,7 +310,7 @@ insert into Section (Sbuilding, Sroom_number, Syear, Ssemester, Ssection, Scode,
 values ("ENG4", 1901, 2559, 2, 1, 2110363, "5555555555");
 
 insert into Section (Sbuilding, Sroom_number, Syear, Ssemester, Ssection, Scode, Tid)
-values ("ENG3", 201, 2558, 2, 1, 2110363, "5555555555");
+values ("ENG3", 201, 2558, 2, 2, 2110363, "5555555555");
 
 #------------------------------------------------------------------------
 insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
