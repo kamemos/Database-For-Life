@@ -490,3 +490,31 @@ insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
 values ("5831035221", 2559, 1, 1, "2110263", "-");
 
 #------------------------------------------------------------------------
+
+insert into activity_participation(Sid, Aname, Ayear)
+values ("5831035221", "Baka", 2559 );
+
+insert into activity_participation(Sid, Aname, Ayear)
+values ("5831035221", "Dancing", 2559 );
+
+insert into activity_participation(Sid, Aname, Ayear)
+values ("5831035221", "Ice Breaking", 2559 );
+
+#------------------------------------------------------------------------
+
+insert into held_at(Pname, Aname, Ayear, Hdate, Begin_time, End_time)
+values ("Larn Gear", "Ice Breaking", 2559, '2559-08-06', '15:15', '18:18');
+
+insert into held_at(Pname, Aname, Ayear, Hdate, Begin_time, End_time)
+values ("Building 3", "Watching Drama", 2558, '2558-08-01', '8:30', '16:00');
+
+insert into held_at(Pname, Aname, Ayear, Hdate, Begin_time, End_time)
+values ("Conference Room", "Baka", 2559, '2558-07-22', '9:30', '10:00');
+
+insert into held_at(Pname, Aname, Ayear, Hdate, Begin_time, End_time)
+values ("Suan Ruam Jai", "Seniors Time", 2558, '2558-07-11', '14:30', '16:00');
+
+insert into held_at(Pname, Aname, Ayear, Hdate, Begin_time, End_time)
+values ("Conference Room", "Dancing", 2559, '2558-07-15', '12:30', '13:00');
+
+#------------------------------------------------------------------------
