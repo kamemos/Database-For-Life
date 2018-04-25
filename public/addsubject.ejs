@@ -40,9 +40,14 @@
             width: 100%;
         }
 
+        div.col-md-2{
+            position: relative;
+            top: -180px;
+        }
+
         form.form-inline{
             float: left;
-            width: 800px;
+            width: auto;
             padding: 0;
             margin-top: 50px;
         }
@@ -85,21 +90,38 @@
     <div class="flexbox">
         <% include menubar.ejs %>
         <div class="content">
-            <form class="form-inline" method="post">
-                <div class="col-md-5">
-                    <label for="subjectCode">Subject Code</label>
-                    <input type="text" name="subjCode1" class="form-control">
-                    <input type="text" name="subjCode2" class="form-control">
-                </div>
-                <div class="col-md-5">
-                    <label for="sectionNo">Section Number</label>
-                    <input type="text" name="secNo1" class="form-control">
-                    <input type="text" name="secNo2" class="form-control">
-                </div>
-                <div class="col-md-2">
-                    <button type="Submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+            <div style="padding:100px">
+                <h1>เพิ่มรายวิชา</h1>
+                <form style="border:solid;border-width:thin;padding:10px;margin-top:20px" class="form-inline" method="post">
+                    <div class="col-md-5">
+                        <label for="subjectCode">Subject Code</label>
+                        <input type="text" name="subjCode1" class="form-control">
+                        <input type="text" name="subjCode2" class="form-control">
+                        <input type="text" name="subjCode3" class="form-control">
+                        <input type="text" name="subjCode4" class="form-control">
+                        <input type="text" name="subjCode5" class="form-control">
+                        <input type="text" name="subjCode6" class="form-control">
+                        <input type="text" name="subjCode7" class="form-control">
+                        <input type="text" name="subjCode8" class="form-control">
+                        <input type="text" name="subjCode9" class="form-control">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="sectionNo">Section Number</label>
+                        <input type="text" name="secNo1" class="form-control">
+                        <input type="text" name="secNo2" class="form-control">
+                        <input type="text" name="secNo3" class="form-control">
+                        <input type="text" name="secNo4" class="form-control">
+                        <input type="text" name="secNo5" class="form-control">
+                        <input type="text" name="secNo6" class="form-control">
+                        <input type="text" name="secNo7" class="form-control">
+                        <input type="text" name="secNo8" class="form-control">
+                        <input type="text" name="secNo9" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="Submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>
