@@ -236,6 +236,13 @@ app.get("/transcript", isLoggedIn, function(req,res,next){
     });
 });
 
+app.get('/payment',isLoggedIn,function(req,res){
+    res.render('payment',{user:req.session.user});
+});
+
+app.get('/vishnu/menu',function(req,res){
+    res.render('vishnumenu');
+})
 // End Routing
 
 // Set up middleware to check for login

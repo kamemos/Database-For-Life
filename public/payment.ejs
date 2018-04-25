@@ -1,0 +1,31 @@
+<% include header.ejs %>
+<link rel="stylesheet" href="/public/assets/css/custom.css">
+<body>
+    <div class="flexbox">
+        <% include menubar.ejs %>
+        <div class="content">
+            <div style='height:20px'></div>
+            <table class="table" style="width:70%">
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold">Name</td>
+                        <td><%= user.Sname %></td>
+                        <td style="font-weight:bold">Degree</td>
+                        <td><%= user.Educational_level %></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Degree</td>
+                        <td><%= user.Educational_level %></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Faculty</td>
+                        <td><%= user.Faculty %></td>
+                        <td style="font-weight:bold">Department</td>
+                        <td><%= user.Nfaculty %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<% include footer.ejs %>

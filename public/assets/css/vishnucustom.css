@@ -12,9 +12,14 @@ div.flexbox {
 
 div.menubar {
     float: left;
-    background-color: #f4f4f4c9;
+    background-color: rgb(214, 146, 160);
     width: 300px;
     height: 100%;
+    color: white;
+}
+
+a.link:hover{
+    color: rgb(149, 221, 179);
 }
 
 .schoolimg {
@@ -66,11 +71,3 @@ td.icon{
 a { 
     color: inherit; 
 } 
-
-tr.logout {
-    background-color: red;
-}
-
-tr.logout:hover {
-    background-color: crimson;
-}
