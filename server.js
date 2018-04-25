@@ -264,6 +264,67 @@ app.get('/payment',isLoggedIn,function(req,res){
     res.render('payment',{user:req.session.user});
 });
 
+app.get('/studentinfo',isLoggedIn, function(req, res, next){
+    db.query('SELECT * FROM student S, activity_participation A WHERE A.Sid = S.Sid && S.Sid =' +req.session.user.Sid, function(err,result,fields){
+        if(err) throw err;
+        else console.log(result);
+        res.render("studentinfo", {Sname: req.session.user.Sname,
+                                Sid: req.session.user.Sid,
+                                Faculty: req.session.user.Faculty,
+                                Educational_level: req.session.user.Educational_level,
+                                Group_name: req.session.user.Group_name,
+                                Cdept_name: req.session.user.Cdept_name,
+                                result: result
+                                });
+        console.log(req.session);
+    });
+});
+
+app.get('/findactivity',isLoggedIn, function(req, res, next){
+    res.render('findactivity');
+});
+
+app.post('/findactivity',isLoggedIn, function(req, res, next){
+    let msg = req.query.msg;
+    let actName = req.body.actName;
+    let actYear = req.body.actYear;
+    let query = 'SELECT * FROM activity A, held_at H WHERE A.Aname = H.Aname AND (A.Aname = "'+actName+'" OR A.Ayear = "'+(0+actYear)+'" )';
+    console.log(query);
+    db.query(query,function(err,result){
+        console.log(result);
+        if (err){
+            console.log('error jaa!');
+            res.render('findactivity',{msg:msg});
+        }
+        else{
+            console.log(result);
+            res.render('findactivity',{msg:msg,
+                                          result:result});
+        }
+    })
+});
+
+app.get('/findstudent',isLoggedIn, function(req, res, next){
+    res.render('findstudent');
+});
+
+app.post('/findstudent',isLoggedIn, function(req, res, next){
+    let SID = req.body.SID;
+    let query = 'SELECT * FROM student S, activity_participation A WHERE A.Sid = S.Sid && S.Sid = '+SID+' LIMIT 1';
+    console.log(query);
+    db.query(query,function(err,result){
+
+        if (err){
+            console.log('error jaa!');
+            res.render('findstudent');
+        }
+        else{
+            console.log(result);
+            res.render('findstudent',{result:result});
+        }
+    })
+});
+
 app.get('/vishnu/menu',function(req,res){
     res.render('vishnumenu');
 })
