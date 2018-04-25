@@ -64,7 +64,7 @@ CREATE TABLE Held_at (
 	Pname 			VARCHAR(255) NOT NULL,
     Aname			VARCHAR(255) NOT NULL,
     Ayear 			INT(5) NOT NULL,
-	Hdate			VARCHAR(255) NOT NULL,
+	Hdate			date NOT NULL,
     Begin_time 		time,
     End_time		time,
     PRIMARY KEY (Pname, Aname, Ayear),
@@ -76,9 +76,10 @@ CREATE TABLE Held_at (
 );
 
 CREATE TABLE Things (
-	Tnumber		INT(5) NOT NULL,
+	Tname		VARCHAR(255) NOT NULL,
+    Tnumber		INT(5) NOT NULL,
     Ttype 		VARCHAR(255) NOT NULL,
-    Quantity	INT(5) NOT NULL,
+    Quantity	INT(8) NOT NULL,
     Detail		VARCHAR(255),
     Sname		VARCHAR(255),
     Aname		VARCHAR(255),
@@ -257,5 +258,3 @@ create table Department (
     Dept_name varchar(255) not null,
     primary key (Dept_code)
 ); # fin
-
-

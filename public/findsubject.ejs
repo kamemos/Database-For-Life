@@ -1,0 +1,118 @@
+<% include header.ejs %>
+<style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            text-align: center;
+        }
+        div.flexbox {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+        }
+
+        div.menubar {
+            float: left;
+            background-color: #f4f4f4c9;
+            width: 300px;
+            height: 100%;
+        }
+
+        .schoolimg {
+            height: 150px; 
+            width: auto; 
+        }
+
+        div.menubar > ul {
+            position: relative;
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 0;
+            padding: 0;
+        }
+        
+        div.content{
+            position: relative;
+            float: left;
+            height: 100%;
+            width: 100%;
+            overflow-x: scroll;
+            overflow-y: scroll;
+        }
+
+        #hangbottom {
+            position: relative;
+            bottom: 10%;
+            width: 40%;
+            top: 300px;
+        }
+        
+        table { 
+            position: relative;
+            margin: auto;
+            border: none;
+        } 
+
+        tr {
+            width: 100%;
+            border: none;
+        }
+        tr:hover {
+            background-color: #ffff99;
+        }
+        td.icon{
+            padding-right: 10px;
+        }
+
+        a { 
+            color: inherit; 
+        } 
+    
+</style>
+
+<body>
+    <div class="flexbox">
+        <% include menubar.ejs %>
+        <div class="content">
+            <br>
+            <h2 align="center">ตรวจสอบตอนเรียน</h2>
+            <br>
+            <form class="form-inline" action="/findsubject" method="post">
+                <div class="col-md-5">
+                    <label for="subjectCode">Subject Code</label>
+                    <input type="text" name="subjCode" class="form-control">
+                </div>
+                <div class="col-md-5">
+                    <label for="sectionNo">Subject Name</label>
+                    <input type="text" name="subjName" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <button type="Submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+            <br>
+            <table style="width:100%">
+                    <tr>
+                        <th>COURSE CODE</th>
+                        <th>COURSE TITLE</th> 
+                        <th>CREDIT</th>
+                        <th>SECTION</th>
+                        <th>BUILDING</th>
+                        <th>ROOM</th>
+                    </tr>
+                <% if(typeof subjects !== "undefined") subjects.forEach(function(subject){ %>
+                    <tr>
+                        <td><%= subject.Scode %></td>
+                        <td><%= subject.Sname %></td>
+                        <td><%= subject.Scredit %></td>
+                        <td><%= subject.Ssection %></td>
+                        <td><%= subject.Sbuilding %></td>
+                        <td><%= subject.Sroom_number %></td>
+                    </tr>
+                <% }); %>
+            </table>
+        </div>
+    </div>
+</body>
+<% include footer.ejs %>

@@ -65,6 +65,24 @@ values ("5555555555", "Doctor of Accounting, Commerce and Accountancy, Cambridge
 #----------------------------------------------------------------------
 
 insert into Student_group (Group_name, Acad_year)
+values ("A", 2560);
+
+insert into Student_group (Group_name, Acad_year)
+values ("B", 2560);
+
+insert into Student_group (Group_name, Acad_year)
+values ("C", 2560);
+
+insert into Student_group (Group_name, Acad_year)
+values ("D", 2560);
+
+insert into Student_group (Group_name, Acad_year)
+values ("E", 2560);
+
+insert into Student_group (Group_name, Acad_year)
+values ("F", 2560);
+
+insert into Student_group (Group_name, Acad_year)
 values ("A", 2559);
 
 insert into Student_group (Group_name, Acad_year)
@@ -214,13 +232,19 @@ insert into Place (Pname, Address, Capacity)
 values ("Larn Gear", "Faculty of Engineering", 200);
 
 insert into Place (Pname, Address, Capacity)
-values ("Building 3", "Faculty of Engineering", 100);
+values ("Building 3", "Faculty of Engineering", 500);
 
 insert into Place (Pname, Address, Capacity)
 values ("Suan Ruam Jai", "Faculty of Engineering", 100);
 
 insert into Place (Pname, Address, Capacity)
 values ("Conference Room", "Building 3, Faculty of Engineering", 300);
+
+insert into Place (Pname, Address, Capacity)
+values ("Building 1", "Faculty of Engineering", 500);
+
+insert into Place (Pname, Address, Capacity)
+values ("Building 4", "Faculty of Engineering", 500);
 
 #------------------------------------------------------------------------
 
@@ -239,9 +263,90 @@ values ("Watching Drama", 2558);
 insert into Activity (Aname, Ayear)
 values ("Seniors Time", 2558);
 
+insert into Activity (Aname, Ayear)
+values ("Ice Breaking", 2560);
+
+insert into Activity (Aname, Ayear)
+values ("Singing", 2560);
+
+insert into Activity (Aname, Ayear)
+values ("Sinking", 2560);
+
+insert into Activity (Aname, Ayear)
+values ("Jebaiting", 2560);
 
 #------------------------------------------------------------------------
 
+insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+values ("Dancing", 2559, "Suan Ruam Jai", "2559-1-1", "14:00:00");
+
+insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+values ("Baka", 2559, "Building 5", "2559-1-2", "12:00:00");
+
+insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+values ("Ice Breaking", 2559, "Larn Gear", "2559-1-1", "15:00:00");
+
+insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+values ("Jebaiting", 2560, "Conference Room", "2560-1-1", "12:00:00");
+
+insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+values ("Singing", 2560, "Larn Gear", "2560-1-2", "14:00:00");
+
+insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+values ("Ice Breaking", 2560, "Building 1", "2560-1-1", "14:00:00");
+
+#------------------------------------------------------------------------
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Dancing", 2559, "A", 2559);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Dancing", 2559, "C", 2559);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Dancing", 2559, "D", 2559);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Dancing", 2559, "F", 2559);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Baka", 2559, "A", 2559);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Baka", 2559, "B", 2559);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Baka", 2559, "C", 2559);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Baka", 2559, "D", 2559);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Singing", 2560, "A", 2560);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Singing", 2560, "B", 2560);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Singing", 2560, "C", 2560);
+
+insert into Held_by_group (Aname, Ayear, Group_name, Acad_year)
+values ("Singing", 2560, "D", 2560);
+
+#------------------------------------------------------------------------
+
+insert into Held_by_central (Aname, Ayear, Dept_name, Acad_year)
+values ("Ice Breaking", 2559, "Central", 2559);
+
+insert into Held_by_central (Aname, Ayear, Dept_name, Acad_year)
+values ("Ice Breaking", 2559, "Activity", 2559);
+
+insert into Held_by_central (Aname, Ayear, Dept_name, Acad_year)
+values ("Jebaiting", 2560, "Activity", 2560);
+
+insert into Held_by_central (Aname, Ayear, Dept_name, Acad_year)
+values ("Ice Breaking", 2560, "Activity", 2560);
+#------------------------------------------------------------------------
 insert into Sponsor (Sname)
 values ("Lactasoy");
 
@@ -250,6 +355,17 @@ values ("SCG");
 
 insert into Sponsor (Sname)
 values ("EGAT");
+
+#------------------------------------------------------------------------
+
+insert into Things(Tname, Tnumber, Ttype, Quantity, Detail, Sname, Aname, Ayear)
+values ("Lactasoy 125 ml", 1,"consumables", 100, "somethingsomething lactasoy", "Lactasoy", "Ice Breaking", 2560);
+
+insert into Things(Tname, Tnumber, Ttype, Quantity, Detail, Sname, Aname, Ayear)
+values ("Money Baht", 2,"money", 100000, "whoawwaowow 100k B", "SCG", "Ice Breaking", 2560);
+
+insert into Things(Tname, Tnumber, Ttype, Quantity, Detail, Sname, Aname, Ayear)
+values ("Money Baht", 3,"money", 100000, "another 100k PogChamp", "EGAT", "Jebaiting", 2560);
 
 #------------------------------------------------------------------------
 
@@ -310,7 +426,7 @@ insert into Section (Sbuilding, Sroom_number, Syear, Ssemester, Ssection, Scode,
 values ("ENG4", 1901, 2559, 2, 1, 2110363, "5555555555");
 
 insert into Section (Sbuilding, Sroom_number, Syear, Ssemester, Ssection, Scode, Tid)
-values ("ENG3", 201, 2558, 2, 1, 2110363, "5555555555");
+values ("ENG3", 201, 2558, 2, 2, 2110363, "5555555555");
 
 #------------------------------------------------------------------------
 insert into student_registers_in(Sid, Syear, Ssemester, Ssection, Scode, Sgrade)
