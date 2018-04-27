@@ -390,7 +390,7 @@ app.post('/findsubject',isLoggedIn, function(req, res, next){
         else{
             console.log(result);
             res.render('findsubject',{msg:msg,
-                                          subjects:result});
+                                      subjects:result});
         }
     })
 });
@@ -423,7 +423,13 @@ app.get("/transcript", isLoggedIn, function(req,res,next){
 });
 
 app.get('/payment',isLoggedIn,function(req,res){
-    res.render('payment',{user:req.session.user});
+    let query = "SELECT * FROM Term_payment \
+                WHERE Sid = " + req.session.user.Sid;
+    db.query(query,function(err,result){
+        console.log(result);
+        res.render('payment',{user:req.session.user,
+                              payments:result});
+    });
 });
 
 app.get('/studentinfo',isLoggedIn, function(req, res, next){

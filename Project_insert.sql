@@ -278,22 +278,22 @@ values ("Jebaiting", 2560);
 #------------------------------------------------------------------------
 
 insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Dancing", 2559, "Suan Ruam Jai", "2559-1-1", "14:00:00");
+values ("Dancing", 2559, "Suan Ruam Jai", "2559-1-1", "13:00:00","14:00:00");
 
 insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Baka", 2559, "Building 5", "2559-1-2", "12:00:00");
+values ("Baka", 2559, "Building 5", "2559-1-2","11:00:00", "12:00:00");
 
 insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Ice Breaking", 2559, "Larn Gear", "2559-1-1", "15:00:00");
+values ("Ice Breaking", 2559, "Larn Gear", "2559-1-1", "14:00:00","15:00:00");
 
 insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Jebaiting", 2560, "Conference Room", "2560-1-1", "12:00:00");
+values ("Jebaiting", 2560, "Conference Room", "2560-1-1", "11:00:00","12:00:00");
 
 insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Singing", 2560, "Larn Gear", "2560-1-2", "14:00:00");
+values ("Singing", 2560, "Larn Gear", "2560-1-2","13:00:00", "14:00:00");
 
 insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Ice Breaking", 2560, "Building 1", "2560-1-1", "14:00:00");
+values ("Ice Breaking", 2560, "Building 1", "2560-1-1", "13:00:00","14:00:00");
 
 #------------------------------------------------------------------------
 
@@ -370,26 +370,26 @@ values ("Money Baht", 3,"money", 100000, "another 100k PogChamp", "EGAT", "Jebai
 #------------------------------------------------------------------------
 
 # weird orders of paynumbers hehe sorry lor paiseh paiseh
-insert into Term_payment (Amount, Tyear, Tnumber, Paynumber, Sid)
-values (21000, 2559, 2, 1, "5831035221");
+insert into Term_payment (Amount, Tyear, Tnumber, Pnumber, Paid, Pmethod, Sid)
+values (21000, 2559, 2, 1, 0, "Unpaid", "5831035221");
 
-insert into Term_payment (Amount, Tyear, Tnumber, Paynumber, Sid)
-values (21000, 2559, 1, 6, "5831035221");
+insert into Term_payment (Amount, Tyear, Tnumber, Pnumber, Paid, Paiddate, Pmethod, Sid)
+values (21000, 2559, 1, 6, 21000, "2559-7-27", "Bank", "5831035221");
 
-insert into Term_payment (Amount, Tyear, Tnumber, Paynumber, Sid)
-values (19000, 2559, 1, 2, "5831029521");
+insert into Term_payment (Amount, Tyear, Tnumber, Pnumber, Paid, Paiddate, Pmethod, Sid)
+values (19000, 2559, 1, 2, 19000, "2559-7-27", "Bank", "5831029521");
 
-insert into Term_payment (Amount, Tyear, Tnumber, Paynumber, Sid)
-values (19000, 2558, 2, 7, "5831029521");
+insert into Term_payment (Amount, Tyear, Tnumber, Pnumber, Paid, Paiddate, Pmethod, Sid)
+values (19000, 2558, 2, 7, 19000, "2559-1-9", "Bank", "5831029521");
 
-insert into Term_payment (Amount, Tyear, Tnumber, Paynumber, Sid)
-values (63000, 2558, 2, 3, "5831016321");
+insert into Term_payment (Amount, Tyear, Tnumber, Pnumber, Paid, Paiddate, Pmethod, Sid)
+values (63000, 2558, 2, 3, 63000, "2559-1-9", "Bank", "5831016321");
 
-insert into Term_payment (Amount, Tyear, Tnumber, Paynumber, Sid)
-values (63000, 2559, 2, 4, "5831004821");
+insert into Term_payment (Amount, Tyear, Tnumber, Pnumber, Paid, Pmethod, Sid)
+values (63000, 2559, 2, 4, 0, "Unpaid", "5831004821");
 
-insert into Term_payment (Amount, Tyear, Tnumber, Paynumber, Sid)
-values (63000, 2558, 1, 5, "1111111121");
+insert into Term_payment (Amount, Tyear, Tnumber, Pnumber, Paid, Paiddate, Pmethod, Sid)
+values (63000, 2558, 1, 5, 63000, "2559-7-27", "Bank","1111111121");
 
 #------------------------------------------------------------------------
 

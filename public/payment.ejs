@@ -5,15 +5,11 @@
         <% include menubar.ejs %>
         <div class="content">
             <div style='height:20px'></div>
-            <table class="table" style="width:70%">
+            <table class="table" style="width:60%;">
                 <tbody>
                     <tr>
                         <td style="font-weight:bold">Name</td>
                         <td><%= user.Sname %></td>
-                        <td style="font-weight:bold">Degree</td>
-                        <td><%= user.Educational_level %></td>
-                    </tr>
-                    <tr>
                         <td style="font-weight:bold">Degree</td>
                         <td><%= user.Educational_level %></td>
                     </tr>
@@ -23,8 +19,46 @@
                         <td style="font-weight:bold">Department</td>
                         <td><%= user.Nfaculty %></td>
                     </tr>
+                    <tr>
+                        <td style="font-weight:bold">Cirriculum</td>
+                        <td><%= user.Ncourse %></td>
+                        <td style="font-weight:bold">Current Year</td>
+                        <td><%= user.Syear %></td>
+                    </tr>
                 </tbody>
             </table>
+            <% payments.forEach(function(payment,idx){ %>
+            <div style="width:80%;height:20px;border-bottom:1px solid;margin:auto"></div>
+            <div style="width:70%;margin:auto;padding:10px;">
+                <p>ปีการศึกษา <%= payment.Tyear %>/<%= payment.Tnumber %></p>
+                <p>เลขที่อ้างอิง <%= payment.Pnumber %></p>
+                <table class="table table-bordered">
+                    <body>
+                        <tr>
+                            <td>จำนวนเงิน</td>
+                            <td><%= payment.Amount %></td>
+                            <td>ชำระแล้ว</td>
+                            <td><%= payment.Paid %></td>
+                        </tr>
+                        <tr>
+                            <td>ชำระเมื่อวันที่</td>
+                            <!-- Paid date section -->
+                            <% if(payment.Paiddate){ %>
+                            <td><%= new Date(payment.Paiddate).toLocaleString() %></td>
+                            <% }else{ %>
+                            <td> - </td>
+                            <% } %>
+                            <!-- Paid date section -->
+                            <td>ยอดค้างชำระ</td>
+                            <td><%= payment.Amount-payment.Paid %></td>
+                        </tr>
+                    </body>
+                </table>
+                <% if(payment.Pmethod !== "Unpaid"){ %>
+                <p>ชำระด้วยวิธีการ <i style="font-weight:bold;color:grey"><%= payment.Pmethod %></i></p>
+                <% } %>
+            </div>
+            <% }) %>
         </div>
     </div>
 </body>

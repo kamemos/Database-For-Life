@@ -71,7 +71,6 @@ CREATE TABLE Held_at (
 	CONSTRAINT fk_Held_at_Pname 
 	FOREIGN KEY Held_at(Pname) 
 	REFERENCES Place(Pname) on update cascade,
-    
 	CONSTRAINT fk_Held_at_activity foreign key (Aname, Ayear) references Activity (Aname, Ayear) on update cascade
 );
 
@@ -221,10 +220,13 @@ create table Term_payment(
 	Amount int not null,
     Tyear int not null,
     Tnumber int not null,
+    Pnumber int not null,
+    Paid int not null,
+    Paiddate date,
+    Pmethod varchar(255),
     Paynumber int not null,
     Sid varchar(10) not null,
-    
-    primary key(Paynumber),
+    primary key(Pnumber),
     constraint fk_Term_payment_term foreign key (Tyear,Tnumber) references Term(Tyear,Tnumber) on update cascade,
     constraint fk_Term_payment_student foreign key (Sid) references Student (Sid) on update cascade
 ); # fin
