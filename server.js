@@ -7,6 +7,8 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var mysql = require('mysql');
 var app = express();
+var moment = require('moment');
+var date = require('date');
 // End Dependencies
 
 // Middleware
@@ -338,6 +340,15 @@ app.post('/findactivity',isLoggedIn, function(req, res, next){
             res.render('findactivity',{msg:msg});
         }
         else{
+            var dateParts = [];
+            for(var i=0; i<result.length; i++){
+                console.log(result[i].Hdate);
+                dateParts[i] = result[i].Hdate;
+                var date = new Date();
+                date = moment(dateParts[i]).format('YYYY-MM-DD');
+                result[i].Hdate = date;
+            }
+            console.log(date);
             console.log(result);
             res.render('findactivity',{msg:msg,
                                           result:result});
@@ -366,9 +377,38 @@ app.post('/findstudent',isLoggedIn, function(req, res, next){
     })
 });
 
+app.get('/vishnustudentreg',function(req,res){
+    res.render('vishnustudentreg');
+});
+
+app.get('/editstudentactivity',function(req,res){
+    let query = 'SELECT * FROM activity A, held_at H WHERE A.Aname = H.Aname;';
+    console.log(query);
+    db.query(query,function(err,result){
+        console.log(result);
+        if (err){
+            console.log('error jaa!');
+            res.render('editstudentactivity');
+        }
+        else{
+            var dateParts = [];
+            for(var i=0; i<result.length; i++){
+                console.log(result[i].Hdate);
+                dateParts[i] = result[i].Hdate;
+                var date = new Date();
+                date = moment(dateParts[i]).format('YYYY-MM-DD');
+                result[i].Hdate = date;
+            }
+            console.log(date);
+            console.log(result);
+            res.render('editstudentactivity',{result:result});
+        }
+    });
+});
+
 app.get('/vishnu/menu',function(req,res){
     res.render('vishnumenu');
-})
+});
 // End Routing
 
 // Set up middleware to check for login

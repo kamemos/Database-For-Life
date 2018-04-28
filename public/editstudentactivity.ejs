@@ -1,0 +1,117 @@
+<% include header.ejs %>
+<style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            text-align: center;
+        }
+        div.flexbox {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+        }
+
+        div.menubar {
+            float: left;
+            background-color: #f4f4f4c9;
+            width: 300px;
+            height: 100%;
+        }
+
+        .schoolimg {
+            height: 150px; 
+            width: auto; 
+        }
+
+        div.menubar > ul {
+            position: relative;
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 0;
+            padding: 0;
+        }
+        
+        div.content{
+            position: relative;
+            float: left;
+            height: 100%;
+            width: 100%;
+            overflow-x: scroll;
+            overflow-y: scroll;
+        }
+
+        #hangbottom {
+            position: relative;
+            bottom: 10%;
+            width: 40%;
+            top: 300px;
+        }
+        
+        table { 
+            position: relative;
+            margin: auto;
+            border: none;
+        } 
+
+        tr {
+            width: 100%;
+            border: none;
+        }
+        tr:hover {
+            background-color: #ffff99;
+        }
+        td.icon{
+            padding-right: 10px;
+        }
+
+        a { 
+            color: inherit; 
+        } 
+    
+</style>
+
+<body>
+    <div class="flexbox">
+        <% include vishnumenubar.ejs %>
+        <div class="content">
+            <br>
+            <h2 align="center">เพิ่ม/ลดนิสิตที่เข้าร่วมกิจกรรม</h2>
+            <br>
+            <h4 align="center">รายชื่อกิจกรรมทั้งหมด</h5>
+            <br>
+            <table style="width:100%">
+                <tr>
+                    <td><h5>ชื่อกิจกรรม</h5></td>
+                    <td><h5>ปีการศึกษา</h5></td>
+                    <td><h5>สถานที่</h5></td>
+                    <td><h5>วันที่</h5></td>
+                    <td><h5>เวลาเริ่ม</h5></td>
+                    <td><h5>เวลาจบ</h5></td>
+                    <td><h5>รายชื่อนิสิต</h5></td>
+                    <td><h5>ตัวเลือก</h5></td>
+                </tr>
+                <% if(typeof result !== "undefined") result.forEach(function(result){ %>
+                <tr>
+                    <td><%= result.Aname %></td>
+                    <td><%= result.Ayear %></td>
+                    <td><%= result.Pname %></td>
+                    <td><%= result.Hdate %></td>
+                    <td><%= result.Begin_time %></td>
+                    <td><%= result.End_time %></td>
+                    <td><button type="button" class="btn btn-primary">ดู</button></td>
+                    <td><div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add or Remove
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">เพิ่มนิสิต</a></li>
+                            <li><a href="#">ลดนิสิต</a></li>
+                        </ul>
+                    </div></td>
+                    <% }); %>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<% include footer.ejs %>
