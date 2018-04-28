@@ -1,3 +1,4 @@
+
 // Dependencies
 var express = require('express');
 var https = require('https');
@@ -9,6 +10,7 @@ var mysql = require('mysql');
 var app = express();
 var moment = require('moment');
 var date = require('date');
+// var connection = mysql.createConnection({multipleStatements: true});
 // End Dependencies
 
 // Middleware
@@ -32,7 +34,7 @@ app.use(function(req, res, next) {
 // End Middleware
 
 // Setup Database
-var db = mysql.createConnection(require('./configs/dbconfig.js'));
+var db = mysql.createConnection(require('./configs/dbconfig.js'),);
 db.connect(function(err) {
     if (err) console.log("err connect database");
     else console.log("connect database success");
@@ -404,6 +406,42 @@ app.get('/editstudentactivity',function(req,res){
             res.render('editstudentactivity',{result:result});
         }
     });
+});
+
+app.get('/addactivity',isLoggedIn, function(req,res,next){
+    res.render('addactivity');
+});
+
+app.post('/addactivity',isLoggedIn, function(req,res,next){
+    Aname = req.body.Aname;
+    Ayear = req.body.Ayear;
+    Place = req.body.Place;
+    date = req.body.Date;
+    Btime = req.body.Btime;
+    Etime = req.body.Etime;
+
+    console.log('INSERT INTO activity (Aname, Ayear) VALUES ("' + Aname + '",' + Ayear + ');'+
+    'INSERT INTO held_at (Pname, Aname, Ayear, Hdate, Begin_time, End_time) VALUES ("'
+    + Place + '","' + Aname + '",' + Ayear + ",'" + date + "','" + Btime + "','" + Etime + "');");
+
+    db.query('INSERT INTO activity (Aname, Ayear) VALUES ("' + Aname + '",' + Ayear + ');',function(err,result){
+            if(err){
+                console.log('insert to database error');
+            }
+            else console.log("insert to database successful");
+    });
+
+    db.query('INSERT INTO held_at (Pname, Aname, Ayear, Hdate, Begin_time, End_time) VALUES ("'
+    + Place + '","' + Aname + '",' + Ayear + ",'" + date + "','" + Btime + "','" + Etime + "');",function(err,result){
+        if(err){
+            console.log('insert to database error');
+        }
+        else {
+            console.log("insert to database successful");
+        }
+    });
+    res.render('addactivity');
+    
 });
 
 app.get('/vishnu/menu',function(req,res){
