@@ -277,23 +277,23 @@ values ("Jebaiting", 2560);
 
 #------------------------------------------------------------------------
 
-insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Dancing", 2559, "Suan Ruam Jai", "2559-1-1", "13:00:00","14:00:00");
-
-insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Baka", 2559, "Building 5", "2559-1-2","11:00:00", "12:00:00");
-
-insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Ice Breaking", 2559, "Larn Gear", "2559-1-1", "14:00:00","15:00:00");
-
-insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Jebaiting", 2560, "Conference Room", "2560-1-1", "11:00:00","12:00:00");
-
-insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Singing", 2560, "Larn Gear", "2560-1-2","13:00:00", "14:00:00");
-
-insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
-values ("Ice Breaking", 2560, "Building 1", "2560-1-1", "13:00:00","14:00:00");
+-- insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+-- values ("Dancing", 2559, "Suan Ruam Jai", "2559-1-1", "13:00:00","14:00:00");
+-- 
+-- insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+-- values ("Baka", 2559, "Building 5", "2559-1-2","11:00:00", "12:00:00");
+-- 
+-- insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+-- values ("Ice Breaking", 2559, "Larn Gear", "2559-1-1", "14:00:00","15:00:00");
+-- 
+-- insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+-- values ("Jebaiting", 2560, "Conference Room", "2560-1-1", "11:00:00","12:00:00");
+-- 
+-- insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+-- values ("Singing", 2560, "Larn Gear", "2560-1-2","13:00:00", "14:00:00");
+-- 
+-- insert into Held_at (Aname, Ayear, Pname, Hdate, Begin_time, End_time)
+-- values ("Ice Breaking", 2560, "Building 1", "2560-1-1", "13:00:00","14:00:00");
 
 #------------------------------------------------------------------------
 

@@ -40,23 +40,6 @@
             width: 100%;
         }
 
-        div.col-md-2{
-            position: relative;
-            top: -180px;
-        }
-
-        form.form-inline{
-            float: left;
-            width: auto;
-            padding: 0;
-            margin-top: 50px;
-        }
-
-        input.form-control{
-            margin-top: 10px;
-            margin-bottom: 2px;
-        }
-
         #hangbottom {
             position: relative;
             bottom: 10%;
@@ -90,26 +73,28 @@
     <div class="flexbox">
         <% include menubar.ejs %>
         <div class="content">
-            <div style="padding:100px">
-                <h1>เพิ่มรายวิชา</h1>
-                <form style="border:solid;border-width:thin;padding:10px;margin-top:20px" class="form-inline" method="post">
-                    <div class="col-md-5">
-                        <label for="subjectCode">Subject Code</label>
-                        <% for (var i=0; i<8; i++) { %>
-                            <input type="text" name="subjCode" class="form-control">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Subject Code</th>
+                        <th scope="col">Subject Name</th>
+                        <th scope="col">Section Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (var i=0; i<7; i++) { %>
+                        <% if(sCode[i]) { %>
+                        <tr>
+                            <th scope="row"><%= i+1 %></th>
+                            <td><%= sCode[i] %></td>
+                            <td><%= sName[i] %></td>
+                            <td><%= sNo[i] %></td>
+                        </tr>
                         <% } %>
-                    </div>
-                    <div class="col-md-5">
-                        <label for="sectionNo">Section Number</label>
-                        <% for (var i=0; i<8; i++) { %>
-                            <input type="text" name="secNo" class="form-control">
-                        <% } %>
-                    </div>
-                    <div class="col-md-2">
-                        <button type="Submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
+                    <% } %>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>

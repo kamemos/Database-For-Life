@@ -224,7 +224,7 @@ create table Term_payment(
     Paid int not null,
     Paiddate date,
     Pmethod varchar(255),
-    Paynumber int not null,
+    -- Paynumber int not null,
     Sid varchar(10) not null,
     primary key(Pnumber),
     constraint fk_Term_payment_term foreign key (Tyear,Tnumber) references Term(Tyear,Tnumber) on update cascade,
