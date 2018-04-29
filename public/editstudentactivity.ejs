@@ -28,14 +28,17 @@
                     <td><%= result.Hdate %></td>
                     <td><%= result.Begin_time %></td>
                     <td><%= result.End_time %></td>
-                    <td><button type="button" class="btn btn-primary">ดู</button></td>
+                    <td>
+                        <% let url = "/activitystudentinfo/" + result.Aname; %>
+                        <a href="<%= url %>">
+                        <button type="button" class="btn btn-primary">ดู</button>
+                        </a>
+                    </td>
                     <td><div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add or Remove
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">เพิ่มนิสิต</a></li>
-                            <li><a href="#">ลดนิสิต</a></li>
-                        </ul>
+                        <% let url2 = "/addnisitactivity/" + result.Aname; %>
+                        <a href="<%= url2 %>">
+                        <button type="button" class="btn btn-primary">เพิ่มนิสิต</button>
+                        </a>
                     </div></td>
                     <% }); %>
                 </tr>

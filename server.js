@@ -396,7 +396,7 @@ app.post('/vishnustudentreg', isLoggedIn, function(req, res, next){
 });
 
 app.get('/editstudentactivity',function(req,res){
-    let query = 'SELECT * FROM activity A, held_at H WHERE A.Aname = H.Aname;';
+    let query = 'SELECT * FROM activity A, held_at H WHERE A.Aname = H.Aname and A.Ayear = H.Ayear;';
     console.log(query);
     db.query(query,function(err,result){
         console.log(result);
@@ -418,6 +418,43 @@ app.get('/editstudentactivity',function(req,res){
             res.render('editstudentactivity',{result:result});
         }
     });
+});
+
+app.get('/activitystudentinfo/:activityname',function(req,res){
+    let Aname = req.params.activityname;
+    console.log(Aname);
+    let query = 'SELECT Sid,Sname,Syear,Group_name FROM activity_participation AP natural join Student S WHERE AP.Aname = "' + Aname + '";';
+    console.log(query);
+    db.query(query, function(err,result){
+        if(err){
+            console.log('query from database error');
+            res.render('activitystudentinfo', {Aname:Aname, result: null});
+        }else{
+            console.log('query from database successful');
+            res.render('activitystudentinfo', {Aname:Aname, result:result});
+        }
+    });
+});
+
+app.get('/addnisitactivity/:activityname',isLoggedIn, function(req,res,next){
+    let Aname = req.params.activityname;
+    res.render('addnisitactivity', {Aname:Aname});
+});
+
+app.post('/addnisitactivity/:activityname',isLoggedIn, function(req,res,next){
+    let Sid = req.body.Sid;
+    let Ayear = req.body.Ayear;
+    let Aname = req.params.activityname;
+    let query = 'insert into activity_participation(Sid, Aname, Ayear) VALUES ("' + Sid + '", "' + Aname + '", ' + Ayear + ');';
+    console.log(query);
+    db.query(query, function(err,result){
+        if(err){
+                console.log('insert to database error');
+        }else{
+            console.log("insert to database successful");
+            res.redirect('/activitystudentinfo/'+Aname);
+        }
+    })
 });
 
 app.get('/addactivity',isLoggedIn, function(req,res,next){
