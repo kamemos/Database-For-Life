@@ -47,7 +47,7 @@
             width: 40%;
             top: 300px;
         }
-
+        
         table { 
             position: relative;
             margin: auto;
@@ -78,40 +78,24 @@
         <% include vishnumenubar.ejs %>
         <div class="content">
             <br>
-            <h2 align="center">ลงทะเบียนนิสิต</h2>
+            <h3 align="center">รายชื่อนิสิตที่เข้าร่วมกิจกรรม <%= Aname %></h3>
             <br>
-            <br>
-            <form action="/vishnustudentreg" method="post">
-                <h5 align="center">รหัสนิสิต</h5>
-                <input type="text" name="studentID" placeholder="Enter Student ID">
-                <br>
-                <br>
-                <br>
-                <h5>กรุ๊ปที่จะเข้า</h5>
-                <input type="text" name="Groupname" placeholder="Enter Group Name">
-                <br>
-                <br>
-                <br>
-                <h5>ฝ่ายที่จะเข้า</h5>
-                <input type="text" name="affname" placeholder="Enter Affiliation Name">
-                <tab></tab>
-                <input type="text" name="affyear" placeholder="Enter Affiliation Year">
-                <br>
-                <br>
-                <br>
-                <button type="submit" class="btn btn-success" formmethod="post">Register</button>
-                <% if(typeof error !== "undefined") { %>
-                    <br>
-                    <br>
-                    <h5 style="color:red;"><%= error %></h5>
-                <% } %>
-                <% if(typeof success != "undefined") { %>
-                    <br>
-                    <br>
-                    <h5 style="color:green;"><%= success %></h5>
-                <% } %>
-            </form>
-            <br>
+            <table style="width:100%">
+                <tr>
+                    <td><h5>รหัสนิสิต</h5></td>
+                    <td><h5>ชื่อ-นามสกุล</h5></td>
+                    <td><h5>ชั้นปีที่</h5></td>
+                    <td><h5>ชื่อกรุ๊ป</h5></td>
+                </tr>
+                <% if(typeof result !== "undefined") result.forEach(function(result){ %>
+                <tr>
+                    <td><%= result.Sid %></td>
+                    <td><%= result.Sname %></td>
+                    <td><%= result.Syear %></td>
+                    <td><%= result.Group_name %></td>
+                </tr>
+                <% }); %>
+            </table>
         </div>
     </div>
 </body>

@@ -47,7 +47,7 @@
             width: 40%;
             top: 300px;
         }
-
+        
         table { 
             position: relative;
             margin: auto;
@@ -68,8 +68,6 @@
         a { 
             color: inherit; 
         } 
-
-        tab{padding-left: 20px;}
     
 </style>
 
@@ -78,40 +76,27 @@
         <% include vishnumenubar.ejs %>
         <div class="content">
             <br>
-            <h2 align="center">ลงทะเบียนนิสิต</h2>
+            <h3 align="center">เพิ่มนิสิตที่เข้าร่วมกิจกรรม <%= Aname %></h3>
             <br>
-            <br>
-            <form action="/vishnustudentreg" method="post">
-                <h5 align="center">รหัสนิสิต</h5>
-                <input type="text" name="studentID" placeholder="Enter Student ID">
+            <% let url = Aname %>
+            <form class="form-inline" action="<%= url %>" method="post">
+                <div class="col-md-5">
+                    <label>รหัสนิสิต</label>
+                    <input type="text" name="Sid" class="form-control">
+                </div>
+                <div class="col-md-5">
+                    <label>ปีการศึกษา</label>
+                    <input type="text" name="Ayear" class="form-control">
+                </div>
+
                 <br>
-                <br>
-                <br>
-                <h5>กรุ๊ปที่จะเข้า</h5>
-                <input type="text" name="Groupname" placeholder="Enter Group Name">
-                <br>
-                <br>
-                <br>
-                <h5>ฝ่ายที่จะเข้า</h5>
-                <input type="text" name="affname" placeholder="Enter Affiliation Name">
-                <tab></tab>
-                <input type="text" name="affyear" placeholder="Enter Affiliation Year">
-                <br>
-                <br>
-                <br>
-                <button type="submit" class="btn btn-success" formmethod="post">Register</button>
-                <% if(typeof error !== "undefined") { %>
-                    <br>
-                    <br>
-                    <h5 style="color:red;"><%= error %></h5>
-                <% } %>
-                <% if(typeof success != "undefined") { %>
-                    <br>
-                    <br>
-                    <h5 style="color:green;"><%= success %></h5>
-                <% } %>
+                
+                <!-- _________________________ -->
+
+                <div class="col-md-2">
+                    <button type="Submit" class="btn btn-primary">Submit</button>
+                </div>
             </form>
-            <br>
         </div>
     </div>
 </body>
