@@ -495,7 +495,11 @@ app.post('/addactivity',isLoggedIn, function(req,res,next){
 });
 
 app.get('/vishnu/editnisit',isLoggedIn,function(req,res){
-    res.render('vishnueditnisit');
+    let msg = '';
+    let success = '';
+    if (req.query.update == 'false') msg = "Update error"
+    else if (req.query.update == 'true') success = 'Successfully update'
+    res.render('vishnueditnisit',{msg:msg,success:success});
 })
 
 app.get('/vishnu/editnisit/show',isLoggedIn,function(req,res){
@@ -531,10 +535,10 @@ app.post('/vishnu/editnisit/:Sid',isLoggedIn,function(req,res){
     }
     db.query(query1,function(err,result){
         if(err || result.affectedRows === 0){
-            res.redirect('/vishnu/editnisit?update=true');
+            res.redirect('/vishnu/editnisit?update=false');
         }
         else {
-            res.redirect('/vishnu/editnisit?update=false')
+            res.redirect('/vishnu/editnisit?update=true')
         }
     })
 })

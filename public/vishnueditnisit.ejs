@@ -8,6 +8,9 @@
             <% if(typeof msg !== 'undefined'){ %>
             <p style="color:red"><%= msg %></p>
             <% } %>
+            <% if(typeof success !== 'undefined'){ %>
+                <p style="color:green"><%= success %></p>
+            <% } %>
             <form style="width:60%;margin:auto" method="POST" action="/vishnu/editnisit" id="searchForm">
                 <div class="form-row">
                     <div class="col">
