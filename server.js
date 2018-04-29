@@ -1,4 +1,3 @@
-
 // Dependencies
 var express = require('express');
 var https = require('https');
@@ -379,8 +378,21 @@ app.post('/findstudent',isLoggedIn, function(req, res, next){
     })
 });
 
-app.get('/vishnustudentreg',function(req,res){
+app.get('/vishnustudentreg', isLoggedIn, function(req, res, next){
     res.render('vishnustudentreg');
+});
+
+app.post('/vishnustudentreg', isLoggedIn, function(req, res, next){
+    let query = "update student set Cdept_name = '" + req.body.affname + "', Cacad_year = " + req.body.affyear + " where Sid = '" + req.body.studentID + "';";
+    console.log(query);
+    db.query(query, function(err, result){
+        if(err){
+            res.render('vishnustudentreg', {error:"INPUT ERROR"});
+        }
+        else{
+            res.render('vishnustudentreg', {success:"UPDATED SUCCESSFUL"});
+        }
+    });
 });
 
 app.get('/editstudentactivity',function(req,res){
@@ -435,12 +447,13 @@ app.post('/addactivity',isLoggedIn, function(req,res,next){
     + Place + '","' + Aname + '",' + Ayear + ",'" + date + "','" + Btime + "','" + Etime + "');",function(err,result){
         if(err){
             console.log('insert to database error');
+            res.render('addactivity', {error:"INPUT ERROR"});
         }
         else {
             console.log("insert to database successful");
+            res.render('addactivity', {success:"INSERT SUCCESSFUL"});
         }
     });
-    res.render('addactivity');
     
 });
 
