@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
 // End Middleware
 
 // Setup Database
-var db = mysql.createConnection(require('./configs/dbconfig.js'),);
+var db = mysql.createConnection(require('./configs/dbconfig.js'));
 db.connect(function(err) {
     if (err) console.log("err connect database");
     else console.log("connect database success");
@@ -457,7 +457,52 @@ app.post('/addactivity',isLoggedIn, function(req,res,next){
     
 });
 
-app.get('/vishnu/menu',function(req,res){
+app.get('/vishnu/editnisit',isLoggedIn,function(req,res){
+    res.render('vishnueditnisit');
+})
+
+app.get('/vishnu/editnisit/show',isLoggedIn,function(req,res){
+    let sid = req.session.editnisit.Sid;
+    req.secure.editnisit = undefined;
+    let query = "select * from student t1 \
+                 inner join Central t2 on t1.Cdept_name = t2.dept_name and t1.Cacad_year = t2.acad_year\
+                 where t1.Sid = "+sid
+    db.query(query,function(err,results){
+        if (err || !results){
+            res.render('vishnueditnisit',{msg:"Not available"});
+        }
+        else {
+            console.log(results)
+            res.render('vishnueditnisit',{nisit:results[0]});
+        }
+    })
+})
+
+app.post('/vishnu/editnisit',isLoggedIn,function(req,res){
+    req.session.editnisit = req.body
+    res.redirect('/vishnu/editnisit/show');
+})
+
+app.post('/vishnu/editnisit/:Sid',isLoggedIn,function(req,res){
+    req.session.editnisit = req.body
+    let query1 = ""
+    if (req.body.group && req.body.duty && req.body.duty_year){
+        query1 = 'UPDATE Student SET Group_name = '+'"'+req.body.group+'"'+', \
+                  Cdept_name ='+'"'+req.body.duty+'"'+',\
+                  Cacad_year ='+req.body.duty_year+'\
+                  WHERE Sid='+req.params.Sid
+    }
+    db.query(query1,function(err,result){
+        if(err || result.affectedRows === 0){
+            res.redirect('/vishnu/editnisit?update=true');
+        }
+        else {
+            res.redirect('/vishnu/editnisit?update=false')
+        }
+    })
+})
+
+app.get('/vishnu/menu',isLoggedIn,function(req,res){
     res.render('vishnumenu');
 });
 // End Routing

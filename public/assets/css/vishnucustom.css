@@ -16,6 +16,7 @@ div.menubar {
     width: 300px;
     height: 100%;
     color: white;
+    overflow: scroll;
 }
 
 a.link:hover{

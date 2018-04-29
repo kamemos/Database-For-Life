@@ -1,0 +1,48 @@
+<% include header.ejs %>
+<link rel="stylesheet" href="/public/assets/css/vishnucustom.css">
+<body>
+    <div class="flexbox">
+        <% include vishnumenubar.ejs %>
+        <div class="content">
+            <div style="height:5%"></div>
+            <% if(typeof msg !== 'undefined'){ %>
+            <p style="color:red"><%= msg %></p>
+            <% } %>
+            <form style="width:60%;margin:auto" method="POST" action="/vishnu/editnisit" id="searchForm">
+                <div class="form-row">
+                    <div class="col">
+                        <label class="form-check-label" for="inlineCheckbox2">Student ID</label>
+                        <input style="width:60%;margin:auto" type="text" class="form-control" name="Sid" placeholder="Enter Student ID">
+                    </div>
+                </div>
+                <div style="height:10px"></div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+            </form>
+            <% if(typeof nisit !== 'undefined'){ %>
+            <div style="height:40px"></div>
+            <p>Name: <%= nisit.Sname %></p>
+            <p>StudentID: <%= nisit.Sid %></p>
+            <div style="border:2px groove;width:50%;margin:auto;padding:10px">
+            <form method="POST" action="/vishnu/editnisit/<%= nisit.Sid %>">
+                <div class="form-row">
+                    <div class="col">
+                        <label>Group</label>
+                        <input class="form-control" value="<%= nisit.Group_name %>" name='group'>
+                    </div>
+                    <div class="col">
+                        <label>Affiliation</label>
+                        <input class="form-control" value="<%= nisit.Cdept_name %>" name='duty'>
+                    </div>
+                    <div class="col">
+                        <label>Affiliation's Year</label>
+                        <input class="form-control" value="<%= nisit.Cacad_year %>" name='duty_year'>
+                    </div>
+                </div>
+                <button type="submit" style="margin-top:10px" class="btn btn-secondary">Edit</button>
+            </form>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+<% include footer.ejs %>
