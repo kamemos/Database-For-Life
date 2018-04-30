@@ -37,10 +37,10 @@ insert into Student(Sname, Sid, Syear, Faculty, State, Grade, Educational_level,
 values ("Mr. Burin Amornpaisannon", "5831035221", 3, "Faculty of Engineering", "N", 1.00, "Bachelor", "D", 2558, "Nothing", 2559, "1111111111", "Computer Engineering", "Bachelor", "Thai", "gamelovegay");
 
 insert into Student(Sname, Sid, Syear, Faculty, State, Grade, Educational_level, Group_name, Acad_year, Cdept_name, Cacad_year, Tid, Nfaculty, Ndegree, Ncourse, Spassword)
-values ("Mr. Korpong Sawataksornchuen", "5831004821", 3, "Faculty of Engineering", "N", 3.98, "Bachelor", "C", 2558, "Nothing", 2558, "1111111111", "Civil Engineering", "Bachelor", "Thai", "indybobo");
+values ("Mr. Korpong Sawataksornchuen", "5831004821", 3, "Faculty of Engineering", "N", 3.98, "Bachelor", "C", 2558, "Place", 2558, "1111111111", "Civil Engineering", "Bachelor", "Thai", "indybobo");
 
 insert into Student(Sname, Sid, Syear, Faculty, State, Grade, Educational_level, Group_name, Acad_year, Cdept_name, Cacad_year, Tid, Nfaculty, Ndegree, Ncourse, Spassword)
-values ("Gustavo", "5831029521", 3, "Faculty of Engineering", "N", 2.27, "Bachelor", "F", 2558, "Nothing", 2559, "1111111111", "Chemical Engineering", "Bachelor", "Thai", "gustavo2499");
+values ("Gustavo", "5831029521", 3, "Faculty of Engineering", "N", 2.27, "Bachelor", "F", 2558, "Activity", 2559, "1111111111", "Chemical Engineering", "Bachelor", "Thai", "gustavo2499");
 
 insert into Student(Sname, Sid, Syear, Faculty, State, Grade, Educational_level, Group_name, Acad_year, Cdept_name, Cacad_year, Tid, Nfaculty, Ndegree, Ncourse, Spassword)
 values ("Mos", "1111111121", 3, "Faculty of Engineering", "N", 0.00, "Bachelor", "G", 2558, "Nothing", 2558, "1111111111", "Chemical Engineering", "Bachelor", "Thai", "moszaretired");
