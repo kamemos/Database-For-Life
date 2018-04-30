@@ -69,8 +69,10 @@ app.get('/logout', function(req,res,next){
 })
 
 app.get('/menu',isLoggedIn, function(req,res,next){
-    console.log(req.session)
-    res.render('menu');
+    let msg = '';
+    console.log(msg.query)
+    if (req.query.msg) msg = req.query.msg;
+    res.render('menu',{msg:msg});
 });
 
 app.get('/registersubj',isLoggedIn, function(req,res,next){
@@ -543,7 +545,7 @@ app.post('/vishnu/editnisit/:Sid',isLoggedIn,function(req,res){
     })
 })
 
-app.get('/vishnu/menu',isLoggedIn,function(req,res){
+app.get('/vishnu/menu',isLoggedIn,isStaff,function(req,res){
     res.render('vishnumenu');
 });
 // End Routing
@@ -556,8 +558,20 @@ function isLoggedIn(req, res, next) {
     res.redirect("/");
 }
 
+function isStaff(req, res, next) {
+    if (req.session.user.Cdept_name === 'Nothing'){
+        console.log('test',req.session)
+        res.redirect('/menu/?msg=Permission denied')
+    }
+    return next();
+}
+
+
+
+
 
 // Create server
 var insecureServer = http.createServer(app).listen(5555, function() {
     console.log('DB PROJECT - HTTP on ' + insecureServer.address().port);
 })
+

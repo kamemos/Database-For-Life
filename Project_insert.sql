@@ -132,6 +132,12 @@ values ("Activity", 2558);
 insert into Central (Dept_name, Acad_year)
 values ("Place", 2558);
 
+insert into Central (Dept_name, Acad_year)
+values ("None", 2558);
+
+insert into Central (Dept_name, Acad_year)
+values ("None", 2559);
+
 #----------------------------------------------------------------------
 
 insert into Department (Dept_code, Dept_name)
